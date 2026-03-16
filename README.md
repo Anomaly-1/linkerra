@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A cross-platform app (Windows, macOS, iOS, Android) to enable:
+A theoretically cross-platform app (Windows, macOS, iOS, Android) to enable:
 - Peer-to-peer infinite data transfers
 - Smart bulk syncing and updates to/from external drives
 - File organization workflows
@@ -47,23 +47,6 @@ A cross-platform app (Windows, macOS, iOS, Android) to enable:
 - Supports right-click or drag-drop to convert
 - Auto-detect output type or batch convert modes
 
-### 5. Workflow System
-- User-defined chained operations (rename > convert > move)
-- Drag-and-drop builder interface
-- Stores workflows as JSON/YAML
-- Reusable and shareable workflows
-
----
-
-## Platform-Specific Features
-
-| Platform   | Unique Additions                                  |
-|------------|---------------------------------------------------|
-| Windows    | Right-click context menu via registry + Rust      |
-| macOS      | Quick Actions + disk access permissions           |
-| Android    | File sharing intents, background sync, notification |
-| iOS        | Drag-drop UI and sandbox-safe features            |
-
 ---
 
 ## Dev Stack Summary
@@ -80,25 +63,6 @@ A cross-platform app (Windows, macOS, iOS, Android) to enable:
 - `flutter_rust_bridge_codegen`
 - `xbuild` for cross-compiling Rust
 - GitHub Actions or Codemagic for CI/CD
-
----
-
-## UI Pages & Flows
-
-| Page             | Description                                           |
-|------------------|-------------------------------------------------------|
-| Home Dashboard   | Overview, active transfers, storage stats            |
-| Device Link      | Connect devices via token or QR                       |
-| Transfer Panel   | Drag-and-drop file send/receive + progress tracking  |
-| Workflow Builder | Visual builder for custom workflows                  |
-| Organizer        | Manual & AI-assisted file categorization             |
-| Settings         | App preferences, permissions, integrations           |
-
----
-
-## Development Timeline
-
-Hopefully complete within a month or less.
 
 ---
 
