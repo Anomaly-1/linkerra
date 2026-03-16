@@ -1,103 +1,110 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
+import { Upload, FolderSync, FileCog, Wand2, Share } from "lucide-react";
+
+export default function HomePage() {
+  const router = useRouter();
+
+  const features = [
+    {
+      icon: <Wand2 className="h-7 w-7" />,
+      label: "Smart Organizer",
+      desc: "AI-powered file sorting",
+      route: "/smart-organizer",
+      gradient: "from-violet-500/20 to-fuchsia-500/20",
+      iconColor: "text-violet-400",
+    },
+    {
+      icon: <FolderSync className="h-7 w-7" />,
+      label: "Drive Sync",
+      desc: "Seamless data synchronization",
+      route: "/drive-sync",
+      gradient: "from-cyan-500/20 to-blue-500/20",
+      iconColor: "text-cyan-400",
+    },
+    {
+      icon: <Share className="h-7 w-7" />,
+      label: "File Transfer",
+      desc: "Fast peer-to-peer sharing",
+      route: "/file-transfer",
+      gradient: "from-emerald-500/20 to-teal-500/20",
+      iconColor: "text-emerald-400",
+    },
+    {
+      icon: <FileCog className="h-7 w-7" />,
+      label: "Converter",
+      desc: "Multi-format conversion",
+      route: "/converter",
+      gradient: "from-amber-500/20 to-orange-500/20",
+      iconColor: "text-amber-400",
+    },
+  ];
+
+  // ... imports stay the same
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-zinc-950 text-white flex flex-col items-center justify-center p-6 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/40 via-zinc-950 to-zinc-950 pointer-events-none" />
+      
+      {/* Header */}
+      <div className="relative z-10 text-center mb-10 max-w-xl px-4">
+        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent mb-3">
+          Toolkit
+        </h1>
+        <p className="text-zinc-400 text-sm md:text-base">
+          Your all-in-one productivity suite. Fast, local, and private.
+        </p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      {/* Feature Grid - Fixed sizing to prevent compression */}
+      <div className="relative z-10 flex flex-wrap justify-center gap-4 md:gap-5 max-w-6xl w-full px-2">
+        {features.map((feature, index) => (
+          <Tooltip key={index}>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                onClick={() => router.push(feature.route)}
+                className={`group relative flex flex-col items-center justify-center 
+                  w-40 h-40 md:w-44 md:h-44 rounded-2xl 
+                  bg-zinc-900/50 border border-zinc-800/60 hover:border-zinc-700 
+                  backdrop-blur-sm transition-all duration-300 ease-out
+                  hover:scale-[1.02] hover:shadow-lg hover:shadow-black/20
+                  focus:ring-2 focus:ring-zinc-700 focus:outline-none
+                  overflow-hidden shrink-0`}
+              >
+                {/* Hover gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                
+                {/* Icon */}
+                <div className={`relative z-10 p-3 rounded-xl bg-zinc-800/50 group-hover:bg-zinc-800/80 transition-colors ${feature.iconColor} group-hover:scale-110 duration-300`}>
+                  {feature.icon}
+                </div>
+                
+                {/* Label */}
+                <span className="relative z-10 mt-3 text-sm font-semibold text-zinc-100 group-hover:text-white transition-colors text-center px-2">
+                  {feature.label}
+                </span>
+                
+                {/* Description - fades in on hover */}
+                <span className="relative z-10 mt-1 text-[10px] text-zinc-500 group-hover:text-zinc-300 transition-colors opacity-0 group-hover:opacity-100 duration-200 text-center px-3">
+                  {feature.desc}
+                </span>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="bottom" className="bg-zinc-800 border-zinc-700 text-zinc-100">
+              {feature.desc}
+            </TooltipContent>
+          </Tooltip>
+        ))}
+      </div>
+    </main>
   );
 }
